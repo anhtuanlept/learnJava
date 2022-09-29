@@ -13,6 +13,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+
 public class LibraryManager extends Application {
 
     public static void main(String[] args) {
@@ -32,6 +34,7 @@ public class LibraryManager extends Application {
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(5));
 
+        Arrays.sort(bookArr);
 
 
         Button btnSearch=new Button("Search");

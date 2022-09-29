@@ -1,6 +1,6 @@
 package core.learnjava.librarymanager.model;
 
-public class Book {//2 cach kiem soat truy nhap la public
+public class Book implements Comparable<Book>{//2 cach kiem soat truy nhap la public
     int id;
     String name;
     String ISBN;
@@ -62,5 +62,10 @@ public class Book {//2 cach kiem soat truy nhap la public
 
         // Compare the data members and return accordingly
         return (this.id==(c.id)&&(this.name.equals(c.name))&&(c.ISBN.equals(this.ISBN)));
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return this.name.compareTo(o.name);
     }
 }
