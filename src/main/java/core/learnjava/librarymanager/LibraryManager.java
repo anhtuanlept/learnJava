@@ -1,5 +1,6 @@
 package core.learnjava.librarymanager;
 
+import core.learnjava.BookTableView;
 import core.learnjava.librarymanager.model.Book;
 import core.learnjava.librarymanager.utils.Utils;
 import javafx.application.Application;
@@ -13,6 +14,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LibraryManager extends Application {
@@ -24,45 +29,47 @@ public class LibraryManager extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        BookListView listView=new BookListView();
+        BookTableView tableView=new BookTableView();
+
+
+        MenuBar menuBar=new MenuBar();
+        Menu fileMenu=new Menu("File");
+        MenuItem viewBook=new MenuItem("DS Book");
+        MenuItem viewBookTable=new MenuItem("Book Table");
+
+        MenuItem closeView=new MenuItem("Close View");
+
+        fileMenu.getItems().addAll(viewBook,closeView,viewBookTable);
+        menuBar.getMenus().addAll(fileMenu);
+
 
         var vbox=new VBox();
-        var sc=new Scene(vbox,600,400);
-        Book[] bookArr= Utils.getBookData();
 
-        ListView listView=new ListView();
-        listView.getSelectionModel().setSelectionMode((SelectionMode.SINGLE));
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(5));
 
-        Arrays.sort(bookArr);
 
 
-        Button btnSearch=new Button("Search");
-
-
-
-        TextField id=new TextField();
-        TextField name=new TextField();
-        TextField isbn=new TextField();
-
-        btnSearch.setOnAction(event->{
-            System.out.println("Button Search is Pressed!");
-            Book book2Find=new Book(Integer.valueOf(id.getText()),name.getText(),isbn.getText());
-            int pos=Utils.linearSearch(bookArr,book2Find);
-
-            System.out.println(pos);
-
-            listView.getSelectionModel().select(pos);
-
-        });
+        var sc=new Scene(vbox,600,400);
 
         HBox hBox=new HBox();
-        hBox.setSpacing(5);
-        hBox.getChildren().addAll(btnSearch,id,name,isbn);
+        vbox.getChildren().addAll(menuBar,hBox);
 
-        vbox.getChildren().addAll(listView,hBox);
+        viewBook.setOnAction(e->{
+            hBox.getChildren().add(listView);
+        });
+        closeView.setOnAction(e->
+        {
+            if(hBox.getChildren().contains(listView))
+                hBox.getChildren().remove(listView);
 
-        listView.getItems().addAll(bookArr);
+            if(hBox.getChildren().contains(tableView))
+                hBox.getChildren().remove(tableView);
+        });
+        viewBookTable.setOnAction(e->{
+            hBox.getChildren().add(tableView);
+        });
 
 
 
