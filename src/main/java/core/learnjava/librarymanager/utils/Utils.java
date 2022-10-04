@@ -2,6 +2,8 @@ package core.learnjava.librarymanager.utils;
 
 import core.learnjava.librarymanager.model.Book;
 
+import java.util.ArrayList;
+
 public class Utils {
     public static Book[] getBookData()
     {
@@ -12,6 +14,17 @@ public class Utils {
         bookArray[3]=new Book(4,"Tam Quoc Dien Nghia","7432-9423");
         bookArray[4]=new Book(5,"Hong Lau Mong","7432-9423");
         return bookArray;
+    }
+
+    public static ArrayList<Book> getBookDataList()
+    {
+        ArrayList<Book> arr=new ArrayList<>();
+        arr.add(new Book(1,"Old man and Sea","2432-4423"));
+        arr.add(new Book(2,"War and Peace","1432-8423"));
+        arr.add(new Book(3,"Tay Du Ky","3432-8423"));
+        arr.add(new Book(4,"Tam Quoc Dien Nghia","7432-9423"));
+        arr.add(new Book(5,"Hong Lau Mong","7432-9423"));
+        return arr;
     }
 
     public static int linearSearch(Book[] data,Book key){
