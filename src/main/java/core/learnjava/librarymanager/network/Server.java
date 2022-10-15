@@ -20,8 +20,6 @@ public class Server {
 
             serverSocket.bind(endpoitAddress);
 
-
-
             System.out.println("Server listening at Address "+serverSocket.getInetAddress().getHostAddress()+" Port: "+serverSocket.getLocalPort());
             while(true)
             {
