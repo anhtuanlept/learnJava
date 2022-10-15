@@ -1,15 +1,8 @@
 package core.learnjava.librarymanager;
 
-import core.learnjava.BookTableView;
-import core.learnjava.librarymanager.model.Book;
-import core.learnjava.librarymanager.utils.Utils;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -17,8 +10,6 @@ import javafx.stage.Stage;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LibraryManager extends Application {
 

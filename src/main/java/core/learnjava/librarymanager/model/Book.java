@@ -1,6 +1,7 @@
 package core.learnjava.librarymanager.model;
+import java.io.Serializable;
 
-public class Book implements Comparable<Book>{//2 cach kiem soat truy nhap la public
+public class Book implements Comparable<Book>,Serializable{//2 cach kiem soat truy nhap la public
     int id;
     String name;
     String ISBN;
